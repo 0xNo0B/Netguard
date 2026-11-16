@@ -1,9 +1,4 @@
-"""NetGuard entry point.
 
-Run:  python main.py               (asks for administrator via UAC on Windows)
-      python main.py --no-elevate  (read-only view, no blocking)
-      python main.py --minimized   (start hidden in the tray; used by autostart)
-"""
 from __future__ import annotations
 
 import logging
@@ -47,7 +42,6 @@ def main() -> int:
             return 0
         log.warning("Elevation declined; starting in read-only mode")
 
-    # Qt imports after the elevation decision so the non-elevated copy exits fast.
     from PySide6.QtCore import QLockFile, Qt
     from PySide6.QtWidgets import QApplication, QMessageBox
 
